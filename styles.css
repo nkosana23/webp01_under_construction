@@ -54,90 +54,114 @@ html {
 .heading {
     text-align: center;
     margin-top: 80px;
-    font-size: 36px;
-    text-transform: uppercase;
-    color: #ffffff;
+    margin-bottom: 20px;
 }
+
+.heading .line {
+    display: block;
+    font-size: clamp(42px, 8vw, 80px);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    line-height: 1;
+    letter-spacing: 2px;
+}
+
 
 /* Progress Section */
 .progress-container {
-    width: 80%;
-    margin: 40px auto;
+    width: 70%;
+    margin: 60px auto;
     text-align: center;
 }
 
 .progress-text {
-    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 100;
+    letter-spacing: clamp(8px, 3vw, 3px);
+    font-size: clamp(15px, 5vw, 15px);
+    line-height: 1.2;
     margin-bottom: 15px;
     color: #ffffff;
+    text-transform: uppercase;
 }
 
 .progress-bar-wrapper {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    font-size: 12px;
-    color: #999;
+    gap: 8px;
 }
 
 .progress-bar {
-    position: relative;
     background-color: #eee;
-    height: 25px;
-    border-radius: 12px;
+    height: 16px;
     width: 100%;
-    margin: 5px 10px;
+    max-width: 400px;
     overflow: hidden;
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 400px;
+    font-size: 12px;
+    color: #cccccc;
+    top: 12px;
 }
 
 .progress-bar-fill {
     background-color: #3498db;
     width: 80%;
     height: 100%;
-    border-radius: 12px 0 0 12px;
 }
 
 /* Button */
 .notify-btn {
     display: block;
     margin: 30px auto;
-    padding: 10px 20px;
-    background-color: #27ae60;
+    padding: 11px 22px;
+    background-color: #0272bd;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    text-transform: uppercase;
+}
+
+.notify-btn:hover {
+    background-color: #025a94;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
 /* Social Icons */
 .social-icons {
     text-align: center;
-    margin: 30px 0;
+    /*margin: 10% 0;*/
+    margin: clamp(4%, 4vw, 3%);
 }
 
 .social-icons a {
     text-decoration: none;
     margin: 0 10px;
     color: white;
-    padding: 10px;
+    padding: 4% 4%;
     border-radius: 50%;
-    font-size: 16px;
+    font-size: 48px;
+    background-color: transparent;
 }
 
-.fa-facebook { background: #3B5998; }
-.fa-twitter { background: #55ACEE; }
-.fa-linkedin { background: #0077B5; }
-.fa-instagram { background: #E4405F; }
-
 .fa:hover {
-    opacity: 0.8;
+    opacity: 0.2;
+    transform: scale(1.50);
+    transition: all 0.3s ease;
 }
 
 /* Footer */
 footer {
-    margin-top: 200px; /* Big space before footer appears */
+    margin-top: 80px; /* Big space before footer appears */
     padding: 50px 0;
     text-align: center;
     font-size: 14px;
