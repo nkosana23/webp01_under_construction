@@ -1,0 +1,147 @@
+* {
+    box-sizing: border-box;
+}
+
+body {  
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Dim overlay using ::before pseudo-element */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+ /* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 5%;
+    right: 5%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 20px 20px;
+    z-index: 999;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.spacer {
+  height: 120px; /* Enough to prevent overlap with the fixed navbar */
+}
+
+/* Main Heading */
+.heading {
+    text-align: center;
+    margin-top: 80px;
+    font-size: 36px;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Progress Section */
+.progress-container {
+    width: 80%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.progress-text {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.progress-bar-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    color: #999;
+}
+
+.progress-bar {
+    position: relative;
+    background-color: #eee;
+    height: 25px;
+    border-radius: 12px;
+    width: 100%;
+    margin: 5px 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: #3498db;
+    width: 80%;
+    height: 100%;
+    border-radius: 12px 0 0 12px;
+}
+
+/* Button */
+.notify-btn {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+/* Social Icons */
+.social-icons {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.social-icons a {
+    text-decoration: none;
+    margin: 0 10px;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.fa-facebook { background: #3B5998; }
+.fa-twitter { background: #55ACEE; }
+.fa-linkedin { background: #0077B5; }
+.fa-instagram { background: #E4405F; }
+
+.fa:hover {
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    margin-top: 200px; /* Big space before footer appears */
+    padding: 50px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #ffffff;
+    width: 100%;
+}
+
