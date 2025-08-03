@@ -11,6 +11,13 @@
 
     <!-- Load external Icons styless -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("YdEYNPcN8rUMHejfc");
+        })();
+    </script>
 </head>
 <body>
     <div id="top" class="spacer"></div>
@@ -39,6 +46,18 @@
     
     <button class="notify-btn">Notify Me!</button>
 
+    <form id="emailForm" class="email-popup">
+        <label for="fullName">Enter Full Name:</label><br>
+        <input type="text" name="name" id="fullName" placeholder="Pearl Khumalo" required>
+
+        <label for="email">Enter your email:</label><br>
+        <input type="email" name="email" id="email" placeholder="username@jbt.com" required>
+
+        <input type="hidden" name="title" value="Website Notification Request">
+  
+        <button type="submit">Confirm Send</button>
+    </form>
+
     <div class="social-icons">
         <a href="#" class="fa fa-facebook"></a>
         <a href="#" class="fa fa-twitter"></a>
@@ -49,5 +68,8 @@
     <footer>
         &copy; 2035 Under Construction. Powered and secured by JBT.
     </footer>
+
+    <!-- Load external JavaScript -->
+    <script src="scripts.js"></script>
 </body>
 </html>
