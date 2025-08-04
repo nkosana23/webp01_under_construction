@@ -46,6 +46,10 @@ body::before {
     50%  { transform: rotate(180deg) scale(1.08); }
     100% { transform: rotate(360deg) scale(1.00); }
 }
+@keyframes fadeSlide {
+    0%   { opacity: 0; transform: translateX(-20px);}
+    100% { opacity: 1; transform: translateX(0);    }
+}
 
 .theme-toggle:hover .icon {
   animation: rotateAndPulse 0.6s ease-in-out forwards;
@@ -55,14 +59,29 @@ body::before {
 .navbar {
     position: fixed;
     top: 5%;
+    left: 5%;
     right: 5%;
     height: 50px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
-    padding-right: 20px; /* Note: Duplicate values — can be simplified */
+    padding: 10px 20px; /* Note: Duplicate values — can be simplified */
+    background-color: transparent;
     z-index: 999; /* Keep it above everything */
 }
+.nav-left,
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+.nav-logo {
+    height: 25%;
+    width: 25%;
+    animation: fadeSlide 2s ease-out forwards;
+    animation-delay: 0.3s;
+    transition: filter 0.3s ease, content 0.3s ease;
+}
+
 /* Navbar link styling */
 .navbar a {
     color: black;
@@ -319,9 +338,14 @@ body.dark-mode .transition-glow {
 }
 
 body.dark-mode {
-    /*background: #121212;*/
+    background: #121212;
     background: linear-gradient(rgba(0, 0, 0, 9), rgba(0, 0, 0, 0.9)), url('background.jpg');
     color: #e0e0e0;
+}
+
+/* **************** REPLACE logo-dark.png REPLACE logo-dark.png REPLACE logo-dark.png ************************ */
+body.dark-mode .nav-logo {
+    content: url('logo-dark.png');
 }
 
 body.dark-mode .navbar a {
