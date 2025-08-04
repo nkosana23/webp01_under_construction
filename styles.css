@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {  
     margin: 0;
     font-family: Arial, sans-serif;
@@ -49,8 +53,13 @@ body::before {
     transition: all 0.3s ease;
 }
 
-html {
-  scroll-behavior: smooth;
+.navbar a:focus,
+.navbar a:active {
+    color: black;
+    font-weight: normal;
+    letter-spacing: 0;
+    font-size: 14px;
+    outline: none;
 }
 
 .spacer {
@@ -203,7 +212,7 @@ html {
 .social-icons a {
     width: 48px;
     height: 48px;
-    font-size: 60px;
+    font-size: 40px;
     color: white;
     background-color: transparent;
     border-radius: 50%;
@@ -221,9 +230,9 @@ html {
     outline: none;
 }
 
-.fa:hover {
-    opacity: 0.2;
+.fa:hover { 
     transform: scale(1.50);
+    color: #025a94;;
     transition: all 0.3s ease;
 }
 
