@@ -33,6 +33,17 @@ document.getElementById("emailForm").addEventListener("submit", function (e) {
         return;
     }
 
+    document.getElementById("submissionTime").value = new Date().toLocaleString('en-ZA', {
+        timeZone: 'Africa/Johannesburg',
+        hour12: false,
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+
     emailjs.sendForm("service_mdd7yja", "template_5azh0tt", this)
     .then(() => {
         alert(`Thanks, ${fullName}! We'll notify you at ${email}.`);
