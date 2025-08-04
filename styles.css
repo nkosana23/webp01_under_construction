@@ -1,31 +1,32 @@
+/* Apply box-sizing to all elements so padding and borders don't expand layout unexpectedly */
 * {
     box-sizing: border-box;
 }
 
+/* Smooth scrolling effect for anchor links */
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
-body {  
+/* Base body layout and background styling */
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
     position: relative;
 }
-
-/* Dim overlay using ::before pseudo-element */
+/* Animated dark overlay that pulses subtly to give visual depth */
 body::before {
     animation: pulseOverlay 10s ease-in-out infinite;
 }
-
 @keyframes pulseOverlay {
-    0% { background-color: rgba(0, 0, 0, 0.4); }
-    50% { background-color: rgba(0, 0, 0, 0.5); }
+    0%   { background-color: rgba(0, 0, 0, 0.4); }
+    50%  { background-color: rgba(0, 0, 0, 0.5); }
     100% { background-color: rgba(0, 0, 0, 0.4); }
 }
 
- /* Navigation Bar */
+/* Navigation bar layout */
 .navbar {
     position: fixed;
     top: 5%;
@@ -34,17 +35,17 @@ body::before {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 20px 20px;
-    z-index: 999;
+    padding-right: 20px 20px; /* Note: Duplicate values — can be simplified */
+    z-index: 999; /* Keep it above everything */
 }
-
+/* Navbar link styling */
 .navbar a {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 14px;
 }
-
+/* Hover state makes navbar links more engaging */
 .navbar a:hover {
     color: #00bfff;
     font-weight: bold;
@@ -52,7 +53,7 @@ body::before {
     font-size: 16px;
     transition: all 0.3s ease;
 }
-
+/* Ensure clicked/focused links don't stay bold or zoomed */
 .navbar a:focus,
 .navbar a:active {
     color: black;
@@ -62,20 +63,20 @@ body::before {
     outline: none;
 }
 
+/* Spacer div used to push content below navbar */
 .spacer {
-  height: 120px; /* Enough to prevent overlap with the fixed navbar */
+    height: 120px;
 }
 
-/* Main Heading */
+/* Hero heading styling */
 .heading {
     text-align: center;
     margin-top: 80px;
     margin-bottom: 20px;
 }
-
 .heading .line {
     display: block;
-    font-size: clamp(42px, 8vw, 80px);
+    font-size: clamp(42px, 8vw, 80px); /* Responsive font sizing */
     font-weight: bold;
     text-transform: uppercase;
     color: #fff;
@@ -83,31 +84,30 @@ body::before {
     letter-spacing: 2px;
 }
 
-/* Progress Section */
+/* Progress bar container layout */
 .progress-container {
     width: 70%;
     margin: 60px auto;
     text-align: center;
 }
-
 .progress-text {
     font-family: 'Oswald', sans-serif;
     font-weight: 100;
-    letter-spacing: clamp(8px, 3vw, 3px);
+    letter-spacing: clamp(8px, 3vw, 3px); /* Responsive spacing */
     font-size: clamp(15px, 5vw, 15px);
     line-height: 1.2;
     margin-bottom: 15px;
-    color: #000000;
+    color: #000;
     text-transform: uppercase;
 }
-
+/* Wrapper for progress bar and labels */
 .progress-bar-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
 }
-
+/* Empty progress bar background */
 .progress-bar {
     background-color: #eee;
     height: 16px;
@@ -115,30 +115,27 @@ body::before {
     max-width: 400px;
     overflow: hidden;
 }
-
+/* Labels on either side of progress bar */
 .progress-labels {
     display: flex;
     justify-content: space-between;
     width: 100%;
     max-width: 400px;
     font-size: 12px;
-    color: #000000;
-    top: 12px;
+    color: #000;
 }
-
+/* Blue fill animation for progress indicator */
 .progress-bar-fill {
     background-color: #3498db;
     width: 0;
     height: 100%;
     animation: fillBar 2s ease-out forwards;
 }
-
 @keyframes fillBar {
     to { width: 75%; }
 }
 
-
-/* Button */
+/* Main CTA button styling */
 .notify-btn {
     display: block;
     margin: 30px auto;
@@ -150,7 +147,6 @@ body::before {
     font-size: 16px;
     cursor: pointer;
 }
-
 .notify-btn:hover {
     background-color: #025a94;
     transform: scale(1.05);
@@ -158,57 +154,68 @@ body::before {
     transition: all 0.3s ease;
 }
 
+/* Hidden notification form defaults */
 .email-popup {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
-  text-align: center;
-  margin-top: 20px;
-  color: black  ;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    text-align: center;
+    margin-top: 20px;
+    color: black;
 }
-
+/* Show form with expand effect */
 .email-popup.open {
-  max-height: 200px;
-  opacity: 1;
+    max-height: 200px;
+    opacity: 1;
 }
-
+/* Input styling inside form */
 .email-popup input {
-  padding: 8px 12px;
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  width: 60%;
-  max-width: 300px;
-  margin: 10px auto;
-  font-size: 14px;
-  display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    width: 60%;
+    max-width: 300px;
+    margin: 10px auto;
+    font-size: 14px;
+    display: block;
 }
-
+/* Submit button styling */
 .email-popup button {
-  margin-top: 10px;
-  padding: 8px 16px;
-  background-color: #0272bd;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  cursor: pointer;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #0272bd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
-
+/* Submit button on hover */
 .email-popup button:hover {
-  background-color: #025a94;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
+    background-color: #025a94;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
 }
 
+/* Inline status confirmation styling */
+.status-message {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: opacity 0.4s ease;
+}
+
+/* Social icon layout */
 .social-icons {
     text-align: center;
     margin: clamp(4%, 4vw, 3%);
 }
-
+/* Social icon style and circular layout */
 .social-icons a {
     width: 48px;
     height: 48px;
@@ -224,25 +231,24 @@ body::before {
     padding: 4%;
     transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
-
+/* Focus ring for accessibility */
 .social-icons a:focus {
     box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.6);
     outline: none;
 }
-
+/* Icon hover behavior */
 .fa:hover { 
     transform: scale(1.50);
-    color: #025a94;;
+    color: #025a94;
     transition: all 0.3s ease;
 }
 
-/* Footer */
+/* Footer spacing and styling */
 footer {
-    margin-top: 80px; /* Big space before footer appears */
+    margin-top: 80px;
     padding: 50px 0;
     text-align: center;
     font-size: 14px;
     color: #ffffff;
     width: 100%;
 }
-

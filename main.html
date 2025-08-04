@@ -3,36 +3,38 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Just Brilliant">    
+    <meta name="author" content="JubriTech">    
     <title>Under Construction</title> 
 
-    <!-- Load external CSS styles -->
+    <!-- Link to custom styles -->
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Load external Icons styless -->
+    <!-- Load Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("YdEYNPcN8rUMHejfc");
-        })();
-    </script>
+    <!-- Load EmailJS library -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
+
 <body>
+    <!-- Spacer to prevent navbar overlap -->
     <div id="top" class="spacer"></div>
 
+    <!-- Fixed navigation -->
     <div class="navbar">
         <a href="#top">Home</a>
     </div>
 
+    <!-- Main heading -->
     <div class="heading">
         <span class="line">UNDER</span><br>
         <span class="line">CONSTRUCTION</span>
     </div>
 
+    <!-- Progress bar section -->
     <div class="progress-container">
         <div class="progress-text">Site nearly done</div>
+        
         <div class="progress-bar-wrapper">
             <div class="progress-bar">
                 <div class="progress-bar-fill"></div>
@@ -43,25 +45,36 @@
             </div>
         </div>
     </div>
-    
-    <button class="notify-btn">Notify Me!</button>
 
+    <!-- Button to trigger notification form -->
+    <button class="notify-btn">Notify Me!</button>
+    
+    <!-- Email notification form -->
     <form id="emailForm" class="email-popup">
+        <!-- Full name input -->
         <label for="fullName">Enter Full Name:</label><br>
         <input type="text" name="name" id="fullName" placeholder="Pearl Khumalo" required>
 
+        <!-- Email address input -->
         <label for="email">Enter your email:</label><br>
         <input type="email" name="email" id="email" placeholder="username@jbt.com" required>
 
+        <!-- Hidden fields for EmailJS template variables -->
         <input type="hidden" name="title" value="Website Notification Request">
-
         <input type="hidden" name="message" value="Kindly Notify Me When Site Construction Is Complete">
-
         <input type="hidden" name="time" id="submissionTime">
-  
+
+        <!-- Submit button -->
         <button type="submit">Confirm Send</button>
     </form>
 
+    <!-- Inline success message -->
+    <div id="statusMessage" class="status-message"></div>
+
+    <!-- Optional timestamp display -->
+    <span id="submissionDisplay" title=""></span>
+
+    <!-- Social media icons -->
     <div class="social-icons">
         <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
         <a href="https://x.com/" class="fa fa-twitter"></a>
@@ -69,11 +82,12 @@
         <a href="https://www.instagram.com/" class="fa fa-instagram"></a>
     </div>
 
+    <!-- Footer -->
     <footer>
-        &copy; 2035 Under Construction. Powered and secured by JBT.
+        &copy; 2035 Under Construction. Powered and secured by JubriTech.
     </footer>
 
-    <!-- Load external JavaScript -->
+    <!-- Custom script -->
     <script src="scripts.js"></script>
 </body>
 </html>
