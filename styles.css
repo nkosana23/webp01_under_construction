@@ -15,6 +15,7 @@ body {
     background: url('background.jpg') no-repeat center center fixed;
     background-size: cover;
     position: relative;
+    transition: background 2.5s ease;
 }
 /* Animated dark overlay that pulses subtly to give visual depth */
 body::before {
@@ -24,6 +25,30 @@ body::before {
     0%   { background-color: rgba(0, 0, 0, 0.4); }
     50%  { background-color: rgba(0, 0, 0, 0.5); }
     100% { background-color: rgba(0, 0, 0, 0.4); }
+}
+/* Dark Mode to Light Mode transition */
+@keyframes glowTransition {
+    0%   { box-shadow: 0 0 0px  rgba(255, 255, 255, 0.0); }
+    50%  { box-shadow: 0 0 40px rgba(255, 255, 255, 0.3); }
+    100% { box-shadow: 0 0 0px  rgba(255, 255, 255, 0.0); }
+}
+/* Dark Mode Button transition */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-12px);}
+    to   { opacity: 1; transform: translateX(0);    }
+}
+@keyframes slideOut {
+    from { opacity: 1; transform: translateX(0);     }
+    to   { opacity: 0; transform: translateX(-12px); }
+}
+@keyframes rotateAndPulse {
+    0%   { transform: rotate(0deg)   scale(1.00); }
+    50%  { transform: rotate(180deg) scale(1.08); }
+    100% { transform: rotate(360deg) scale(1.00); }
+}
+
+.theme-toggle:hover .icon {
+  animation: rotateAndPulse 0.6s ease-in-out forwards;
 }
 
 /* Navigation bar layout */
@@ -35,7 +60,7 @@ body::before {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-right: 20px 20px; /* Note: Duplicate values — can be simplified */
+    padding-right: 20px; /* Note: Duplicate values — can be simplified */
     z-index: 999; /* Keep it above everything */
 }
 /* Navbar link styling */
@@ -183,6 +208,7 @@ body::before {
 /* Submit button styling */
 .email-popup button {
     margin-top: 10px;
+    margin-bottom: 20px;
     padding: 8px 16px;
     background-color: #0272bd;
     color: white;
@@ -251,4 +277,110 @@ footer {
     font-size: 14px;
     color: #ffffff;
     width: 100%;
+}
+
+/* ====================== Theme Toggle Floating Icon ====================== */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    padding: 10px 14px;
+    font-size: 18px;
+    background-color: #011929;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.theme-toggle:hover #themeIcon {
+    animation: rotateAndPulse 0.6s ease-in-out forwards;
+    background-color: #000f1a;
+    transform: scale(1.05);
+}
+/* Hide label by default */
+#themeLabel.hidden {
+    display: none;
+}
+
+#themeLabel.visible {
+    display: inline;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/*  ====================== Dark Mode ======================   */
+body.dark-mode .transition-glow {
+    animation: glowTransition 10s ease-in-out;
+}
+
+body.dark-mode {
+    /*background: #121212;*/
+    background: linear-gradient(rgba(0, 0, 0, 9), rgba(0, 0, 0, 0.9)), url('background.jpg');
+    color: #e0e0e0;
+}
+
+body.dark-mode .navbar a {
+    color: white;
+}
+
+body.dark-mode .navbar a:hover {
+    color: #00bfff;
+}
+
+body.dark-mode .heading .line {
+    color: #e0e0e0;
+}
+
+body.dark-mode .progress-text {
+    color: white;
+}
+
+body.dark-mode .progress-bar {
+    background-color: #333;
+}
+
+body.dark-mode .progress-bar-fill {
+    background-color: #90caf9;
+}
+
+body.dark-mode .progress-labels {
+    color: white;
+}
+
+body.dark-mode .email-popup {
+    color: white;
+}
+
+body.dark-mode .notify-btn,
+body.dark-mode .email-popup button {
+    background-color: #37474f;
+    color: #e0e0e0;
+}
+
+body.dark-mode .notify-btn:hover,
+body.dark-mode .email-popup button:hover {
+    background-color: #263238;
+    box-shadow: 0 0 15px #90caf9;
+}
+
+body.dark-mode .social-icons a {
+    color: #90caf9;
+}
+
+body.dark-mode .status-message {
+    color: #66bb6a;
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #90caf9;
+    color: #121212;
+}
+
+body.dark-mode .theme-toggle:hover #themeIcon {
+    background-color: #90caf9;
 }

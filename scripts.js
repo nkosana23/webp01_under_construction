@@ -91,6 +91,43 @@ document.getElementById("emailForm").addEventListener("submit", function (e) {
     })
     .finally(() => {
         sendButton.disabled = false;
-        sendButton.textContent = "Notify Me";
+        sendButton.textContent = "Confirm Send";
     });
+});
+
+/* Dark & Light Mode & Button Function */
+const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
+const themeLabel = document.getElementById("themeLabel");
+
+themeToggle.addEventListener("mouseenter", () => {
+    themeLabel.classList.remove("hidden");
+    themeLabel.classList.add("visible");
+});
+
+themeToggle.addEventListener("mouseleave", () => {
+    themeLabel.classList.remove("visible");
+    themeLabel.classList.add("hidden");
+});
+
+themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    document.body.classList.add("transition-glow");
+    setTimeout(() => {
+        document.body.classList.remove("transition-glow");
+    }, 1000);
+
+    // Update icon and label
+    if (document.body.classList.contains("dark-mode")) {
+        themeIcon.textContent = "☀️";
+        themeLabel.textContent = "Light Mode";
+    } else {
+        themeIcon.textContent = "🌙";
+        themeLabel.textContent = "Dark Mode";
+    }
+
+    // Immediately hide label after tap (for mobile)
+    themeLabel.classList.remove("visible");
+    themeLabel.classList.add("hidden");
 });
